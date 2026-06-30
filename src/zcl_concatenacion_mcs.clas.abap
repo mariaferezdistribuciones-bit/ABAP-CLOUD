@@ -59,7 +59,7 @@ CLASS zcl_concatenacion_mcs IMPLEMENTATION.
             lv_mensaje = |El correo configurado es { to_upper( condense( lv_email ) ) } |.
             out->write( lv_mensaje ).
 
-
+""LO QUE SEA
 
 
 

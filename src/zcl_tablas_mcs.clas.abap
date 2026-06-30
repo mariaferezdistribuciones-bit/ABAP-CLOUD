@@ -28,9 +28,14 @@ CLASS zcl_tablas_mcs IMPLEMENTATION.
 
 
 
-*DATA ls_ciudadano TYPE ty_ciudadano.
+*DATA ls_ciudadano TYPE ty_ciudadano.   "en esta linea creamos la estructura asignando el type generado arriba.
 
-DATA lt_ciudadano TYPE TABLE OF ty_ciudadano.   "Creamos tabla.
+DATA lt_ciudadano TYPE TABLE OF ty_ciudadano.   "Creamos tabla. (la diferencia es el TABLE OF)
+
+
+
+                  "ABAJO VEMOS VARIAS FORMAS DE INTRODUCIR VALORES EN UNA TABLA INTERNA
+
 
 
 
@@ -71,6 +76,17 @@ INSERT VALUE #( nombre = 'Pepe' dni = '123456789' telefono = 9682563652 direccio
 
 
 out->write( lt_ciudadano ).
+
+
+MODIFY ZBD_CIUDAD_MCS FROM TABLE @(
+VALUE #( (  client = '100'
+         nombre = 'Pepe'
+         dni = '456123'
+         telefono = 968456789
+         direccion = 'Mayor 25' ) )
+
+  ).
+
 
 
 
